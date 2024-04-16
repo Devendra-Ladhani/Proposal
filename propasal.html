@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: aqua;
+            display: flex;
+            height: 100vh;
+            flex-wrap: wrap;
+            align-items: end;
+            justify-content: center;
+        }
+        #main_envelope{
+            background-color: bisque;
+            height:300px;
+            width:500px;
+            border: 5px solid burlywood;
+            border-radius: 10px;
+            /*clip-path: polygon(51% 70%, 100% 0, 100% 99%, 0 100%, 0 0);*/
+            position: relative;
+        }
+        #cover_envelope,#cover_envelope2{
+            background-color: burlywood;
+            width:500px;
+            height:280px;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+
+            border-radius: 10px;
+        }
+        #cover_envelope{
+            position: absolute;
+            top: 0px;
+        }
+        #cover_envelope2{
+            background-color: bisque;
+            transform: scaleY(-1);
+            border:5px solid burlywood;
+            align-self: start;
+            display: none;
+
+        }
+        #strip{
+            /*overflow: hidden;*/
+            font-size: 35px;
+            position: absolute;
+            width: 500px;
+            height:50px;
+            top:200px;
+            /*background-color: white;*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        #left_strip,#right_strip,#center_strip{
+            overflow: hidden;
+            height: 100%;
+            text-align: center;
+            background-color: white;
+        }
+        #strip:hover{
+            cursor: pointer;
+        }
+        #left_strip{
+            width: 30%;
+            /*background-color: black;*/
+        }
+        #right_strip{
+            width: 30%;
+            /*background-color: blue;*/
+        }
+        #center_strip{
+            width:40%;
+            /*background-color: green;*/
+        }
+        #cards{
+            background-color: white;
+            /*border: 5px solid black;*/
+            height:220px;
+            /*overflow-y: hidden;*/
+            width: 500px;
+            position: absolute;
+            top: 280px;
+            /*padding-top: 10px;*/
+            display: none;
+            /*z-index: -1;*/
+        }
+        #card_2,#card_1{
+            background-color: white;
+            border: 5px solid black;
+            height:100%;
+            width: 100%;
+            transition: translate 1s;
+            font-size: 38px;
+            text-align: center;
+            font-family: 'Edwardian Script ITC';
+            border-bottom: none;
+            /*padding: 10px;*/
+            /*height: 250px;*/
+            /*width: 500px;*/
+            /*margin-top: 50px;*/
+        }
+        #card_2{
+            /*background-color: blue;*/
+            position: absolute;
+            top: 80px;
+            /*height: 300px;*/
+            /*margin-top: 50px;*/
+        }
+        #cards:hover{
+            cursor: pointer;
+        }
+        #card_1:hover,#card_2:hover{
+            /*background-color: red;*/
+            translate: 0px -150px;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: relative">
+        <div id = "cover_envelope2"></div>
+        <div id = "main_envelope">
+            <div id = "cover_envelope"></div>
+            <div id="strip" onclick="display()">
+                <div id = "left_strip">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</div>
+                <div id = "center_strip">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</div>
+                <div id = "right_strip">❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</div>
+            </div>
+        </div>
+        <div id = "cards">
+            <div id = "card_1">
+                In your eyes, I find my home. Let's journey 👣 together forever. Will you be mine?🫶
+            </div>
+            <div id = "card_2">
+                Your Laughter echoes in my heart. Let's paint our love story🫂.Will you be my forever?🥺
+            </div>
+        </div>
+    </div>
+    <script>
+        function display() {
+            console.log("Hello Gandu");
+            var x = document.getElementById('center_strip');
+            var y = document.getElementById('cover_envelope');
+            var z = document.getElementById('main_envelope');
+            var k = document.getElementById('cover_envelope2');
+            var l = document.getElementById('cards');
+            x.style.display='none';
+            z.style.clipPath='polygon(51% 70%, 100% 0, 100% 99%, 0 100%, 0 0)';
+            z.style.zIndex='1';
+            y.style.display='none';
+            k.style.display='block';
+            k.style.zIndex='-1';
+            l.style.display='block';
+        }
+    </script>
+<!--    <div id = "cut_envelope"></div>-->
+</body>
+</html>
